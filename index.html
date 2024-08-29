@@ -1,89 +1,179 @@
-/<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="da">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gopniks og Rusland</title>
-<style>
-       body {
-           background-color: #000;
-           color: #fff;
-           font-family: Arial, sans-serif;
-           text-align: center;
-           margin: 0;
-           padding: 0;
-       }
-       header {
-           padding: 20px;
-           background-color: #111;
-       }
-       header h1 {
-           margin: 0;
-           font-size: 36px;
-       }
-       section {
-           padding: 20px;
-       }
-       .bio {
-           font-size: 18px;
-           margin: 20px 0;
-       }
-       .image-gallery {
-           display: grid;
-           grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-           gap: 15px;
-           margin: 20px 0;
-       }
-       .image-gallery img {
-           width: 100%;
-           height: auto;
-           border: 2px solid #fff;
-           cursor: pointer;
-       }
-       footer {
-           padding: 10px;
-           background-color: #111;
-       }
-       a {
-           color: #fff;
-           text-decoration: none;
-       }
-       a:hover {
-           text-decoration: underline;
-       }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gopniks</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            background-color: #2B2B2B; /* Mørk grå baggrund */
+            color: #E0E0E0; /* Lys grå tekst */
+            line-height: 1.6;
+            text-align: center;
+        }
+        header {
+            background-color: #D32F2F; /* Rød baggrundsfarve */
+            color: #FFFFFF; /* Hvid tekstfarve */
+            padding: 20px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+            font-weight: bold;
+        }
+        .header-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .logo {
+            max-width: 150px;
+            height: auto;
+            margin-right: 20px;
+            border-radius: 50%;
+            border: 3px solid #FFFFFF;
+        }
+        nav {
+            background-color: #212121; /* Sort baggrundsfarve */
+            padding: 15px 0;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        nav a {
+            color: #FFFFFF; /* Hvid tekstfarve */
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+            color: #D32F2F; /* Rød ved hover */
+        }
+        section {
+            padding: 20px;
+            background-color: #424242; /* Mørk grå baggrundsfarve */
+            margin-bottom: 20px;
+            border-radius: 5px;
+            color: #E0E0E0; /* Lys grå tekstfarve */
+        }
+        .bio {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .image-gallery img {
+            width: 100%;
+            height: auto;
+            border: 3px solid #D32F2F; /* Rød kant om billederne */
+            cursor: pointer;
+        }
+        footer {
+            background-color: #D32F2F; /* Rød baggrundsfarve */
+            color: #FFFFFF; /* Hvid tekstfarve */
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .hidden {
+            display: none;
+        }
+        .gallery img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
+
 <header>
-<h1>Gopniks og Rusland</h1>
+    <div class="header-container">
+    </div>
+    <p>Velkommen til Gopnik kulturen - dit hub for russisk kultur!</p>
 </header>
-<section>
-<div class="bio">
-<p>Velkommen til min hjemmeside, hvor vi udforsker livet som Gopnik og dykker ned i den russiske kultur. Her finder du billeder, som du kan downloade, samt masser af information om, hvad det vil sige at være en ægte Gopnik.</p>
-</div>
-<div class="image-gallery">
-<div>
-<a href="https://example.com/gopnik1.jpg" download>
-<img src="https://example.com/gopnik1.jpg" alt="Gopnik 1">
-</a>
-<p>Download Gopnik billede 1</p>
-</div>
-<div>
-<a href="https://example.com/gopnik2.jpg" download>
-<img src="https://example.com/gopnik2.jpg" alt="Gopnik 2">
-</a>
-<p>Download Gopnik billede 2</p>
-</div>
-<div>
-<a href="https://example.com/gopnik3.jpg" download>
-<img src="https://example.com/gopnik3.jpg" alt="Gopnik 3">
-</a>
-<p>Download Gopnik billede 3</p>
-</div>
-</div>
+
+
+<nav>
+    <a href="#" class="link" data-target="omos">Om Os</a>
+    <a href="#" class="link" data-target="gopnik-billeder">Gopnik Billeder</a>
+    <a href="#" class="link" data-target="videoer">Videoer</a>
+    <a href="#" class="link" data-target="kontakt">Kontakt Os</a>
+</nav>
+
+<section id="omos">
+    <h2>Om Os</h2>
+    <p>Vi er dedikeret til at levere de seneste nyheder, billeder og videoer fra Gopnik-kulturen. Vores passion for russisk kultur driver os til at levere det bedste indhold til vores brugere. Venligt hilsen de to gopniks</p>
 </section>
+
+<section id="gopnik-billeder" class="hidden">
+    <h2>Gopnik Billeder</h2>
+    <div class="image-gallery">
+        <div>
+            <a href="https://example.com/gopnik1.jpg" download>
+                <img src="https://example.com/gopnik1.jpg" alt="Gopnik 1">
+            </a>
+            <p>Download Gopnik billede 1</p>
+        </div>
+        <div>
+            <a href="https://example.com/gopnik2.jpg" download>
+                <img src="https://example.com/gopnik2.jpg" alt="Gopnik 2">
+            </a>
+            <p>Download Gopnik billede 2</p>
+        </div>
+        <div>
+            <a href="https://example.com/gopnik3.jpg" download>
+                <img src="https://example.com/gopnik3.jpg" alt="Gopnik 3">
+            </a>
+            <p>Download Gopnik billede 3</p>
+        </div>
+    </div>
+</section>
+
+<section id="videoer" class="hidden">
+    <h2>Videoer</h2>
+    <p>Her vil der være videoer.</p>
+</section>
+
+<section id="kontakt" class="hidden">
+    <h2>Kontakt Os</h2>
+    <p>Gopniks@russer.com.</p>
+</section>
+
 <footer>
-<p>&copy; 2024 Gopniks og Rusland. Alle rettigheder forbeholdes.</p>
+    <p>&copy; 2024 Gopniks. Alle rettigheder forbeholdes.</p>
 </footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const links = document.querySelectorAll('.link');
+        links.forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                const targetId = this.getAttribute('data-target');
+                const sections = document.querySelectorAll('section');
+                sections.forEach(section => {
+                    if (section.id === targetId) {
+                        section.classList.remove('hidden');
+                    } else {
+                        section.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    });
+</script>
+
 </body>
 </html>
