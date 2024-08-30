@@ -73,7 +73,8 @@
         }
         .image-gallery img {
             width: 100%;
-            height: auto;
+            height: 200px; /* Fixed height for all images */
+            object-fit: cover; /* Ensures image covers the set dimensions */
             border: 3px solid #D32F2F; /* Rød kant om billederne */
             cursor: pointer;
         }
@@ -121,18 +122,19 @@
 <section id="billeder" class="hidden">
     <h2>Billeder</h2>
     <div class="image-gallery">
-          <a href="https://i.postimg.cc/Wb7pRtxj/Gopnik.jpg" download>
-                <img src="https://i.postimg.cc/Wb7pRtxj/Gopnik.jpg" alt="Gopnik 1">
+        <div>
+            <a href="https://postimg.cc/kBBPKMnh" download>
+                <img src="https://postimg.cc/kBBPKMnh" alt="Gopnik 1">
             </a>
         </div>
         <div>
-            <a href="https://i.postimg.cc/50JkM9hd/Gopnik-2.jpg" download>
-                <img src="https://i.postimg.cc/50JkM9hd/Gopnik-2.jpg" alt="Gopnik 2">
+            <a href="https://postimg.cc/TykcVx2C" download>
+                <img src="https://postimg.cc/TykcVx2C" alt="Gopnik 2">
             </a>
         </div>
         <div>
-            <a href="https://i.postimg.cc/x8xsHvcn/Gopnik-3.jpg" download>
-                <img src="https://i.postimg.cc/x8xsHvcn/Gopnik-3.jpg" alt="Gopnik 3">
+            <a href="https://postimg.cc/64ZLxGrm" download>
+                <img src="https://postimg.cc/64ZLxGrm" alt="Gopnik 3">
             </a>
         </div>
     </div>
@@ -148,7 +150,8 @@
     <h3>Hvis du har nogle forslag, 
         til hvordan vi kan gøre SlavHub
         bedre kan du sende en mail til SlavHub48@gmail.com</h3>
-    
+</section>
+
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         const links = document.querySelectorAll('.link');
