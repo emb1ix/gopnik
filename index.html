@@ -164,7 +164,6 @@
             text-align: center;
             text-decoration: none;
             display: block;
-            cursor: pointer;
         }
         .admin-btn:hover {
             background-color: #333333;
@@ -257,16 +256,17 @@
     <p>Hvis du har nogle forslag, 
         til hvordan vi kan gøre SlavHub
         bedre kan du sende en mail til SlavHub48@gmail.com</p>
+</section>
 
 <section id="historie" class="hidden">
     <h2>Om Gopniks</h2>
     p>Den Russiske Gopnik kultur started i 1980’erne som betegnelse for unge Arbejderklasse mænd
-              , som hang ud på gaden og drak alkohol og røg smøger. Det fortsatte op gennem 1990’erne og 00’erne.
-              Gopniks findes stadig, især i de Slaviske lande som Polen, Ukraine og Rusland.
-              Den typiske beklædning for Gopniks er enten normalt Arbejdertøj og lædertøj, eller den klassiske Adidas Tracksuit.
-              De bor typisk i Soviet-boligblokke, men bruger det meste af tiden på gaden, hvor de spiser Семечки
-              (ristede og saltede solsikkefrø) og drikker Квас (en fermenterede rugbrødsdrik).</p3>
-</section>
+    , som hang ud på gaden og drak alkohol og røg smøger. Det fortsatte op gennem 1990’erne og 00’erne.
+    Gopniks findes stadig, især i de Slaviske lande som Polen, Ukraine og Rusland.
+    Den typiske beklædning for Gopniks er enten normalt Arbejdertøj og lædertøj, eller den klassiske Adidas Tracksuit.
+    De bor typisk i Soviet-boligblokke, men bruger det meste af tiden på gaden, hvor de spiser Семечки
+    (ristede og saltede solsikkefrø) og drikker Квас (en fermenterede rugbrødsdrik).</p3>
+</section></section>
 
 <section id="login" class="login-container hidden">
     <form class="login-form" action="login.php" method="post">
@@ -277,9 +277,9 @@
         <input type="password" id="password" name="password" required>
         <button type="submit">Login</button>
         <!-- Admin knap der fører til GitHub repository -->
-        <a href="#" class="admin-btn" id="admin-btn">Admin</a>
+        <a href="https://github.com/emb1ix/gopnik" class="admin-btn">Admin</a>
     </form>
-</section
+</section>
 
 <script>
     document.querySelectorAll('.link').forEach(link => {
@@ -299,16 +299,6 @@
             section.classList.add('hidden');
         });
         document.getElementById('login').classList.remove('hidden');
-    });
-
-    document.getElementById('admin-btn').addEventListener('click', function(event) {
-        event.preventDefault();
-        let code = prompt("Indtast admin-koden:");
-        if (code === "4565") {
-            window.location.href = "https://github.com/emb1ix/gopnik";
-        } else {
-            alert("Forkert kode! Prøv igen.");
-        }
     });
 </script>
 
