@@ -55,6 +55,22 @@
         .login-btn:hover {
             background-color: #f5f5f5;
         }
+        .user-info {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #FFFFFF;
+            color: #D32F2F;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            display: none; /* Skjult som standard */
+        }
+        .user-info:hover {
+            background-color: #f5f5f5;
+        }
         nav {
             background-color: #212121; /* Sort baggrundsfarve */
             padding: 15px 0;
@@ -179,6 +195,7 @@
         <h1>SlavHub</h1>
     </div>
     <a href="#login" class="login-btn">Login</a>
+    <span class="user-info" id="user-info">Brugernavn</span>
     <p>Velkommen til SlavHub - dit hub for Gopniks og russisk kultur!</p>
 </header>
 
@@ -211,10 +228,10 @@
             <img src="https://i.postimg.cc/R0VbkSkk/tmp-673f5ef6-2187-473d-af2a-9c2cf3d81004.jpg" alt="Gopnik 4">
         </div>
         <div>
-            <img src="https://i.postimg.cc/4NWc8X17/tmp-a09aca7c-6ad8-4bd0-b296-5df3d4d13713.jpg" alt="Gopnik 5">
+            <img src="https://i.postimg.cc/kX5HvcHQ/Gopnik-5.jpg" alt="Gopnik 5">
         </div>
         <div>
-            <img src="https://i.postimg.cc/vmV6Hfwf/tmp-dd4358c4-8a5d-4f1f-90b6-09122296e8e8.jpg" alt="Gopnik 6">
+            <img src="https://i.postimg.cc/ht19Qz8X/Gopnik-6.jpg" alt="Gopnik 6">
         </div>
         <div>
             <img src="https://i.postimg.cc/Kz7ktbzY/tmp-e4682e9b-92c9-4405-bf3c-3990ff4f8719.jpg" alt="Gopnik 7">
@@ -266,6 +283,8 @@
 </section>
 
 <script>
+    let currentUsername = ''; // Variable til at holde det aktuelle brugernavn
+
     document.querySelectorAll('.link').forEach(link => {
         link.addEventListener('click', function(event) {
             event.preventDefault();
@@ -291,7 +310,15 @@
 
         if (username === "Alfred" && password === "Kurwa") {
             alert("Login successful!");
-            // Redirect to a different page or show a message
+            currentUsername = username; // Opdater den nuværende bruger
+            document.querySelector('.login-btn').style.display = 'none'; // Skjul login-knappen
+            const userInfo = document.getElementById('user-info');
+            userInfo.textContent = `Velkommen, ${currentUsername}`; // Vis brugernavnet
+            userInfo.style.display = 'inline-block'; // Vis brugernavnet
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            document.getElementById('omos').classList.remove('hidden'); // Vis startsiden eller en anden sektion
         } else {
             alert("Forkert brugernavn eller adgangskode!");
         }
