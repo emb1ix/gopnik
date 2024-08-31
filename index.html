@@ -208,16 +208,6 @@
             <img src="https://i.postimg.cc/x8xsHvcn/Gopnik-3.jpg" alt="Gopnik 3">
         </div>
         <div>
-            <img src="https://i.postimg.cc/Wb7pRtxj/Gopnik.jpg" alt="Gopnik 1">
-        </div>
-        <div>
-            <img src="https://i.postimg.cc/50JkM9hd/Gopnik-2.jpg" alt="Gopnik 2">
-        </div>
-        <div>
-            <img src="https://i.postimg.cc/x8xsHvcn/Gopnik-3.jpg" alt="Gopnik 3">
-        </div>
-        <!-- Tilføj yderligere 9 billeder her -->
-        <div>
             <img src="https://i.postimg.cc/R0VbkSkk/tmp-673f5ef6-2187-473d-af2a-9c2cf3d81004.jpg" alt="Gopnik 4">
         </div>
         <div>
@@ -244,7 +234,7 @@
         <div>
             <img src="https://i.postimg.cc/MTwX6LDJ/tmp-464db4ec-0a5c-4ab9-a614-28bd21c3ddb6.jpg" alt="Gopnik 12">
         </div>
-        <div>
+    </div>
 </section>
 
 <section id="videoer" class="hidden">
@@ -254,32 +244,25 @@
 
 <section id="kontakt" class="hidden">
     <h2>Kontakt Os</h2>
- <p>Hvis du har nogle forslag, 
-        til hvordan vi kan gøre SlavHub
-        bedre kan du sende en mail til SlavHub48@gmail.com</p>
+    <p>Hvis du har nogle forslag, til hvordan vi kan gøre SlavHub bedre kan du sende en mail til SlavHub48@gmail.com</p>
 </section>
 
 <section id="historie" class="hidden">
     <h2>Om Gopniks</h2>
-     p>Den Russiske Gopnik kultur started i 1980’erne som betegnelse for unge Arbejderklasse mænd
-    , som hang ud på gaden og drak alkohol og røg smøger. Det fortsatte op gennem 1990’erne og 00’erne.
-    Gopniks findes stadig, især i de Slaviske lande som Polen, Ukraine og Rusland.
-    Den typiske beklædning for Gopniks er enten normalt Arbejdertøj og lædertøj, eller den klassiske Adidas Tracksuit.
-    De bor typisk i Soviet-boligblokke, men bruger det meste af tiden på gaden, hvor de spiser Семечки
-    (ristede og saltede solsikkefrø) og drikker Квас (en fermenterede rugbrødsdrik).</p3>
+    <p>Den Russiske Gopnik kultur started i 1980’erne som betegnelse for unge Arbejderklasse mænd, som hang ud på gaden og drak alkohol og røg smøger. Det fortsatte op gennem 1990’erne og 00’erne. Gopniks findes stadig, især i de Slaviske lande som Polen, Ukraine og Rusland. Den typiske beklædning for Gopniks er enten normalt Arbejdertøj og lædertøj, eller den klassiske Adidas Tracksuit. De bor typisk i Soviet-boligblokke, men bruger det meste af tiden på gaden, hvor de spiser Семечки (ristede og saltede solsikkefrø) og drikker Квас (en fermenterede rugbrødsdrik).</p>
 </section>
 
 <section id="login" class="login-container hidden">
-    <form class="login-form" action="login.php" method="post">
+    <div class="login-form">
         <h2>Login</h2>
         <label for="username">Brugernavn:</label>
-        <input type="text" id="username" name="username" required>
+        <input type="text" id="username">
         <label for="password">Adgangskode:</label>
-        <input type="password" id="password" name="password" required>
-        <button type="submit">Login</button>
+        <input type="password" id="password">
+        <button id="login-btn">Login</button>
         <!-- Admin knap der fører til GitHub repository -->
         <a href="#" class="admin-btn" id="admin-btn">Admin</a>
-    </form>
+    </div>
 </section>
 
 <script>
@@ -302,13 +285,25 @@
         document.getElementById('login').classList.remove('hidden');
     });
 
+    document.getElementById('login-btn').addEventListener('click', function() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        if (username === "Alfred" && password === "Kurwa") {
+            alert("Login successful!");
+            // Redirect to a different page or show a message
+        } else {
+            alert("Forkert brugernavn eller adgangskode!");
+        }
+    });
+
     document.getElementById('admin-btn').addEventListener('click', function(event) {
         event.preventDefault();
         let code = prompt("Indtast admin-koden:");
         if (code === "4565") {
             window.location.href = "https://github.com/emb1ix/gopnik/blob/main/index.html";
         } else {
-            alert("Forkert kode!.");
+            alert("Forkert kode!");
         }
     });
 </script>
