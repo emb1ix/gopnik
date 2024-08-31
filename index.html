@@ -55,22 +55,6 @@
         .login-btn:hover {
             background-color: #f5f5f5;
         }
-        .user-info {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color: #FFFFFF;
-            color: #D32F2F;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
-            display: none; /* Skjult som standard */
-        }
-        .user-info:hover {
-            background-color: #f5f5f5;
-        }
         nav {
             background-color: #212121; /* Sort baggrundsfarve */
             padding: 15px 0;
@@ -185,6 +169,18 @@
         .admin-btn:hover {
             background-color: #333333;
         }
+        /* Styling til at vise brugernavn efter login */
+        #user-info {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #FFFFFF;
+            color: #D32F2F;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            display: none; /* Skjult som standard */
+        }
     </style>
 </head>
 <body>
@@ -195,7 +191,7 @@
         <h1>SlavHub</h1>
     </div>
     <a href="#login" class="login-btn">Login</a>
-    <span class="user-info" id="user-info">Brugernavn</span>
+    <p id="user-info"></p> <!-- Plads til brugernavn -->
     <p>Velkommen til SlavHub - dit hub for Gopniks og russisk kultur!</p>
 </header>
 
@@ -225,64 +221,79 @@
             <img src="https://i.postimg.cc/x8xsHvcn/Gopnik-3.jpg" alt="Gopnik 3">
         </div>
         <div>
-            <img src="https://i.postimg.cc/R0VbkSkk/tmp-673f5ef6-2187-473d-af2a-9c2cf3d81004.jpg" alt="Gopnik 4">
+            <img src="https://i.postimg.cc/Wb7pRtxj/Gopnik.jpg" alt="Gopnik 1">
         </div>
         <div>
-            <img src="https://i.postimg.cc/kX5HvcHQ/Gopnik-5.jpg" alt="Gopnik 5">
+            <img src="https://i.postimg.cc/50JkM9hd/Gopnik-2.jpg" alt="Gopnik 2">
         </div>
         <div>
-            <img src="https://i.postimg.cc/ht19Qz8X/Gopnik-6.jpg" alt="Gopnik 6">
+            <img src="https://i.postimg.cc/x8xsHvcn/Gopnik-3.jpg" alt="Gopnik 3">
+        </div>
+        <!-- Tilføj yderligere 9 billeder her -->
+        <div>
+            <img src="https://i.postimg.cc/R0VbkSkk/tmp-673f5ef6-2187-4734-8e3b-66d940cfaa5b.jpg" alt="Gopnik 4">
         </div>
         <div>
-            <img src="https://i.postimg.cc/Kz7ktbzY/tmp-e4682e9b-92c9-4405-bf3c-3990ff4f8719.jpg" alt="Gopnik 7">
+            <img src="https://i.postimg.cc/0NjHJ0VS/ashtray-gopnik.jpg" alt="Gopnik 5">
         </div>
         <div>
-            <img src="https://i.postimg.cc/QC0FnqcG/tmp-7ef6d586-3c93-49aa-81b3-06d6b7758f9f.png" alt="Gopnik 8">
+            <img src="https://i.postimg.cc/RF35DsGT/dript.jpg" alt="Gopnik 6">
         </div>
         <div>
-            <img src="https://i.postimg.cc/rFw0RvL8/tmp-00354dad-2c62-48cc-84a0-bf28bff995b0.jpg" alt="Gopnik 9">
+            <img src="https://i.postimg.cc/W4LhPpSp/Classic-Gopnik.jpg" alt="Gopnik 7">
         </div>
         <div>
-            <img src="https://i.postimg.cc/TYNyVCRn/tmp-caa320e0-d7f9-491c-88c5-38f3bc8fb90d.jpg" alt="Gopnik 10">
+            <img src="https://i.postimg.cc/yd5zfd1g/Gopnik-10.jpg" alt="Gopnik 8">
         </div>
         <div>
-            <img src="https://i.postimg.cc/tgWYHbFz/tmp-f4a4f929-4016-446d-894e-8dc4f33d606e.jpg" alt="Gopnik 11">
-        </div>
-        <div>
-            <img src="https://i.postimg.cc/MTwX6LDJ/tmp-464db4ec-0a5c-4ab9-a614-28bd21c3ddb6.jpg" alt="Gopnik 12">
+            <img src="https://i.postimg.cc/4xHbKZ3d/Gopnik9.jpg" alt="Gopnik 9">
         </div>
     </div>
 </section>
 
 <section id="videoer" class="hidden">
     <h2>Videoer</h2>
-    <p>Her finder du de bedste Gopnik-videoer. Vi har samlet alt fra klassiske slav squats til de seneste dance moves.</p>
+    <p>Velkommen til video-sektionen. Se de nyeste videoer af Gopniks her!</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/Sm6Gv3BQSMM" frameborder="0" allowfullscreen></iframe>
 </section>
 
 <section id="kontakt" class="hidden">
     <h2>Kontakt Os</h2>
-    <p>Hvis du har nogle forslag, til hvordan vi kan gøre SlavHub bedre kan du sende en mail til SlavHub48@gmail.com</p>
+    <p>Har du spørgsmål eller vil du i kontakt med os? Send os en besked!</p>
 </section>
 
 <section id="historie" class="hidden">
     <h2>Om Gopniks</h2>
-    <p>Den Russiske Gopnik kultur started i 1980’erne som betegnelse for unge Arbejderklasse mænd, som hang ud på gaden og drak alkohol og røg smøger. Det fortsatte op gennem 1990’erne og 00’erne. Gopniks findes stadig, især i de Slaviske lande som Polen, Ukraine og Rusland. Den typiske beklædning for Gopniks er enten normalt Arbejdertøj og lædertøj, eller den klassiske Adidas Tracksuit. De bor typisk i Soviet-boligblokke, men bruger det meste af tiden på gaden, hvor de spiser Семечки (ristede og saltede solsikkefrø) og drikker Квас (en fermenterede rugbrødsdrik).</p>
+    <p>Gopnik-kulturen stammer fra Rusland og er kendt for sit unikke udseende, herunder Adidas-tracksuits, samt det berømte "slav squat".</p>
 </section>
 
-<section id="login" class="login-container hidden">
-    <div class="login-form">
-        <h2>Login</h2>
-        <label for="username">Brugernavn:</label>
-        <input type="text" id="username">
-        <label for="password">Adgangskode:</label>
-        <input type="password" id="password">
-        <button id="login-btn">Login</button>
-        <!-- Admin knap der fører til GitHub repository -->
-        <a href="#" class="admin-btn" id="admin-btn">Admin</a>
+<section id="login" class="hidden">
+    <div class="login-container">
+        <form class="login-form">
+            <h2>Login</h2>
+            <label for="username">Brugernavn:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Adgangskode:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="button" id="login-btn">Login</button>
+        </form>
+        <button id="admin-btn" class="admin-btn">Admin Login</button>
     </div>
 </section>
 
+<footer>
+    <p>&copy; 2023 SlavHub. Alle rettigheder forbeholdes.</p>
+</footer>
+
 <script>
+    // Liste over brugere med brugernavn og adgangskode
+    const users = [
+        { username: "Alfred", password: "Kurwa" },
+        { username: "Oliver", password: "4565" },
+        { username: "Admin", password: "4565" },
+        // Tilføj flere brugere her
+    ];
+
     let currentUsername = ''; // Variable til at holde det aktuelle brugernavn
 
     document.querySelectorAll('.link').forEach(link => {
@@ -308,9 +319,12 @@
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
 
-        if (username === "Alfred" && password === "Kurwa") {
+        // Find den bruger, der matcher det indtastede brugernavn og adgangskode
+        const user = users.find(user => user.username === username && user.password === password);
+
+        if (user) {
             alert("Login successful!");
-            currentUsername = username; // Opdater den nuværende bruger
+            currentUsername = user.username; // Opdater den nuværende bruger
             document.querySelector('.login-btn').style.display = 'none'; // Skjul login-knappen
             const userInfo = document.getElementById('user-info');
             userInfo.textContent = `Velkommen, ${currentUsername}`; // Vis brugernavnet
