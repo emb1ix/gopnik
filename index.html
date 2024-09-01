@@ -89,6 +89,14 @@
             margin-bottom: 20px;
             border-radius: 5px;
             color: #E0E0E0; /* Lys grå tekstfarve */
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out; /* Fade-in/fade-out transition */
+        }
+        section.show {
+            opacity: 1;
+        }
+        .hidden {
+            display: none;
         }
         .bio {
             font-size: 18px;
@@ -115,9 +123,6 @@
             position: fixed;
             width: 100%;
             bottom: 0;
-        }
-        .hidden {
-            display: none;
         }
         .gallery img {
             max-width: 100%;
@@ -226,7 +231,7 @@
     <a href="#" class="link" data-target="historie">Om Gopniks</a>
 </nav>
 
-<section id="omos">
+<section id="omos" class="show">
     <h2>Om Os</h2>
     <p>Vi er dedikeret til at levere de seneste nyheder, billeder og videoer fra den russiske gopnik kultur. Vores passion for russisk kultur driver os til at levere det bedste indhold til vores brugere. Venligt hilsen de to danske gopniks</p>
 </section>
@@ -234,54 +239,30 @@
 <section id="billeder" class="hidden">
     <h2>Billeder</h2>
     <div class="image-gallery">
-        <div>
-            <img src="https://i.postimg.cc/Wb7pRtxj/Gopnik.jpg" alt="Gopnik 1">
-        </div>
-        <div>
-            <img src="https://i.postimg.cc/50JkM9hd/Gopnik-2.jpg" alt="Gopnik 2">
-        </div>
-        <div>
-            <img src="https://i.postimg.cc/x8xsHvcn/Gopnik-3.jpg" alt="Gopnik 3">
-        </div>
-        <div>
-            <img src="https://i.postimg.cc/R0VbkSkk/tmp-673f5ef6-2187-4734-8e3b-66d940cfaa5b.jpg" alt="Gopnik 4">
-        </div>
-        <div>
-            <img src="https://i.postimg.cc/4N5kqQW3/tmp-464db4ec-0a5c-4ab9-a614-28bd21c3ddb6.jpg" alt="Gopnik 5">
-        </div>
-        <div>
-            <img src="https://i.postimg.cc/C1qp2y2y/tmp-00354dad-2c62-48cc-84a0-bf28bff995b0.jpg" alt="Gopnik 7">
-        </div>
-        <div>
-            <img src="https://i.postimg.cc/FKqQGFDg/tmp-a09aca7c-6ad8-4bd0-b296-5df3d4d13713.jpg" alt="Gopnik 8">
-        </div>
-        <div>
-            <img src="https://i.postimg.cc/VsXcB8Mn/tmp-caa320e0-d7f9-491c-88c5-38f3bc8fb90d.jpg" alt="Gopnik 9">
-        </div>
-        <div>
-            <img src="https://i.postimg.cc/qRpzxyX8/tmp-f4a4f929-4016-446d-894e-8dc4f33d606e.jpg" alt="Gopnik 10">
-        </div>
+        <img src="https://i.postimg.cc/3xt6mkJk/thumbnail-4.jpg" alt="Billede 1">
+        <img src="https://i.postimg.cc/V6pffqr5/thumbnail-2.jpg" alt="Billede 2">
+        <img src="https://i.postimg.cc/DZxz2hDP/thumbnail-3.jpg" alt="Billede 3">
     </div>
 </section>
 
 <section id="videoer" class="hidden">
     <h2>Videoer</h2>
-    <p>Velkommen til video-sektionen. Se de nyeste videoer af Gopniks her!</p>
+    <div class="gallery">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video 1" frameborder="0" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/3JZ_D3ELwOQ" title="Video 2" frameborder="0" allowfullscreen></iframe>
+    </div>
 </section>
 
 <section id="kontakt" class="hidden">
     <h2>Kontakt Os</h2>
-    <p>Har du spørgsmål eller vil du oprette en profil? Send os en besked på slavhub48@gmail.com</p>
+    <p>Har du spørgsmål eller kommentarer? Kontakt os venligst via vores e-mail: kontakt@slavhub.dk.</p>
 </section>
 
 <section id="historie" class="hidden">
     <h2>Om Gopniks</h2>
-    <p>Den Russiske Gopnik kultur started i 1980’erne som betegnelse for unge Arbejderklasse mænd,
-        som hang ud på gaden og drak alkohol og røg smøger. Det fortsatte op gennem 1990’erne og 00’erne.
-        Gopniks findes stadig, især i de Slaviske lande som Polen, Ukraine og Rusland.
-        Den typiske beklædning for Gopniks er enten normalt Arbejdertøj og lædertøj, eller den klassiske Adidas Tracksuit.
-        De bor typisk i Soviet-boligblokke, men bruger det meste af tiden på gaden, hvor de spiser Семечки (ristede og saltede solsikkefrø)
-        og drikker Квас (en fermenterede rugbrødsdrik).</p>
+    <div class="bio">
+        <p>Gopniks er en subkultur, der stammer fra Rusland og de tidligere sovjetiske lande. De er kendt for deres unikke stil og livsstil, som ofte inkluderer Adidas-træningsdragter, squatting og en forkærlighed for russisk rap.</p>
+    </div>
 </section>
 
 <section id="login" class="hidden">
@@ -292,74 +273,55 @@
             <input type="text" id="username" name="username" required>
             <label for="password">Adgangskode:</label>
             <input type="password" id="password" name="password" required>
-            <button type="button" id="login-btn">Login</button>
+            <button type="submit">Login</button>
+            <a href="#" class="admin-btn">Admin</a>
         </form>
-        <button id="admin-btn" class="admin-btn">Admin Login</button>
     </div>
 </section>
 
+<footer>
+    <p>&copy; 2024 SlavHub. Alle rettigheder forbeholdes.</p>
+</footer>
+
 <script>
-    // Liste over brugere med brugernavn og adgangskode
-    const users = [
-        { username: "Alfred", password: "Kurwa" },
-        { username: "Oliver", password: "4565" },
-        { username: "Tester", password: "ur2stupid" },
-        // Tilføj flere brugere her
-    ];
-
-    let currentUsername = ''; // Variable til at holde det aktuelle brugernavn
-
-    document.querySelectorAll('.link').forEach(link => {
-        link.addEventListener('click', function(event) {
-            event.preventDefault();
-            document.querySelectorAll('section').forEach(section => {
-                section.classList.add('hidden');
-            });
-            const targetId = this.getAttribute('data-target');
-            document.getElementById(targetId).classList.remove('hidden');
-        });
-    });
-
-    document.querySelector('.login-btn').addEventListener('click', function(event) {
+document.querySelectorAll('.link').forEach(link => {
+    link.addEventListener('click', function(event) {
         event.preventDefault();
-        document.querySelectorAll('section').forEach(section => {
-            section.classList.add('hidden');
-        });
-        document.getElementById('login').classList.remove('hidden');
-    });
 
-    document.getElementById('login-btn').addEventListener('click', function() {
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-
-        // Find den bruger, der matcher det indtastede brugernavn og adgangskode
-        const user = users.find(user => user.username === username && user.password === password);
-
-        if (user) {
-            alert("Login successful!");
-            currentUsername = user.username; // Opdater den nuværende bruger
-            document.querySelector('.login-btn').style.display = 'none'; // Skjul login-knappen
-            const userInfo = document.getElementById('user-info');
-            userInfo.textContent = `Velkommen, ${currentUsername}`; // Vis brugernavnet
-            userInfo.style.display = 'inline-block'; // Vis brugernavnet
-            document.querySelectorAll('section').forEach(section => {
-                section.classList.add('hidden');
-            });
-            document.getElementById('omos').classList.remove('hidden'); // Vis startsiden eller en anden sektion
-        } else {
-            alert("Forkert brugernavn eller adgangskode!");
+        // Fade out the current visible section
+        const currentSection = document.querySelector('section.show');
+        if (currentSection) {
+            currentSection.classList.remove('show');
+            setTimeout(() => {
+                currentSection.classList.add('hidden');
+            }, 500); // Match this duration with the CSS transition
         }
-    });
 
-    document.getElementById('admin-btn').addEventListener('click', function(event) {
-        event.preventDefault();
-        let code = prompt("Indtast admin-koden:");
-        if (code === "4565") {
-            window.location.href = "https://github.com/emb1ix/gopnik/blob/main/index.html";
-        } else {
-            alert("Du er ikke Admin, så hold dig væk herfra!");
-        }
+        // Show the target section
+        const targetId = this.getAttribute('data-target');
+        const targetSection = document.getElementById(targetId);
+        targetSection.classList.remove('hidden');
+        setTimeout(() => {
+            targetSection.classList.add('show');
+        }, 10); // Small delay to ensure class changes are applied
     });
+});
+
+document.querySelector('.login-btn').addEventListener('click', function(event) {
+    event.preventDefault();
+    const currentSection = document.querySelector('section.show');
+    if (currentSection) {
+        currentSection.classList.remove('show');
+        setTimeout(() => {
+            currentSection.classList.add('hidden');
+        }, 500); // Match this duration with the CSS transition
+    }
+    const loginSection = document.getElementById('login');
+    loginSection.classList.remove('hidden');
+    setTimeout(() => {
+        loginSection.classList.add('show');
+    }, 10); // Small delay to ensure class changes are applied
+});
 </script>
 
 </body>
