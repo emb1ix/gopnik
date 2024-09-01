@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="da">
 <head>
@@ -89,14 +90,6 @@
             margin-bottom: 20px;
             border-radius: 5px;
             color: #E0E0E0; /* Lys grå tekstfarve */
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out; /* Fade-in/fade-out transition */
-        }
-        section.show {
-            opacity: 1;
-        }
-        .hidden {
-            display: none;
         }
         .bio {
             font-size: 18px;
@@ -123,6 +116,9 @@
             position: fixed;
             width: 100%;
             bottom: 0;
+        }
+        .hidden {
+            display: none;
         }
         .gallery img {
             max-width: 100%;
@@ -231,7 +227,7 @@
     <a href="#" class="link" data-target="historie">Om Gopniks</a>
 </nav>
 
-<section id="omos" class="show">
+<section id="omos">
     <h2>Om Os</h2>
     <p>Vi er dedikeret til at levere de seneste nyheder, billeder og videoer fra den russiske gopnik kultur. Vores passion for russisk kultur driver os til at levere det bedste indhold til vores brugere. Venligt hilsen de to danske gopniks</p>
 </section>
@@ -271,22 +267,22 @@
 
 <section id="videoer" class="hidden">
     <h2>Videoer</h2>
-    <p>Her vil være videoer</p>
-    <div class="gallery">
-
-    </div>
+    <p>Velkommen til video-sektionen. Se de nyeste videoer af Gopniks her!</p>
 </section>
 
 <section id="kontakt" class="hidden">
     <h2>Kontakt Os</h2>
-    <p>Har du spørgsmål eller kommentarer? Kontakt os venligst via vores e-mail: kontakt@slavhub.dk.</p>
+    <p>Har du spørgsmål eller vil du oprette en profil? Send os en besked på slavhub48@gmail.com</p>
 </section>
 
 <section id="historie" class="hidden">
     <h2>Om Gopniks</h2>
-    <div class="bio">
-        <p>Gopniks er en subkultur, der stammer fra Rusland og de tidligere sovjetiske lande. De er kendt for deres unikke stil og livsstil, som ofte inkluderer Adidas-træningsdragter, squatting og en forkærlighed for russisk rap.</p>
-    </div>
+    <p>Den Russiske Gopnik kultur started i 1980’erne som betegnelse for unge Arbejderklasse mænd,
+        som hang ud på gaden og drak alkohol og røg smøger. Det fortsatte op gennem 1990’erne og 00’erne.
+        Gopniks findes stadig, især i de Slaviske lande som Polen, Ukraine og Rusland.
+        Den typiske beklædning for Gopniks er enten normalt Arbejdertøj og lædertøj, eller den klassiske Adidas Tracksuit.
+        De bor typisk i Soviet-boligblokke, men bruger det meste af tiden på gaden, hvor de spiser Семечки (ristede og saltede solsikkefrø)
+        og drikker Квас (en fermenterede rugbrødsdrik).</p>
 </section>
 
 <section id="login" class="hidden">
@@ -297,51 +293,74 @@
             <input type="text" id="username" name="username" required>
             <label for="password">Adgangskode:</label>
             <input type="password" id="password" name="password" required>
-            <button type="submit">Login</button>
-            <a href="#" class="admin-btn">Admin</a>
+            <button type="button" id="login-btn">Login</button>
         </form>
+        <button id="admin-btn" class="admin-btn">Admin Login</button>
     </div>
 </section>
 
 <script>
-document.querySelectorAll('.link').forEach(link => {
-    link.addEventListener('click', function(event) {
-        event.preventDefault();
+    // Liste over brugere med brugernavn og adgangskode
+    const users = [
+        { username: "Alfred", password: "Kurwa" },
+        { username: "Oliver", password: "4565" },
+        { username: "Tester", password: "ur2stupid" },
+        // Tilføj flere brugere her
+    ];
 
-        // Fade out the current visible section
-        const currentSection = document.querySelector('section.show');
-        if (currentSection) {
-            currentSection.classList.remove('show');
-            setTimeout(() => {
-                currentSection.classList.add('hidden');
-            }, 500); // Match this duration with the CSS transition
-        }
+    let currentUsername = ''; // Variable til at holde det aktuelle brugernavn
 
-        // Show the target section
-        const targetId = this.getAttribute('data-target');
-        const targetSection = document.getElementById(targetId);
-        targetSection.classList.remove('hidden');
-        setTimeout(() => {
-            targetSection.classList.add('show');
-        }, 10); // Small delay to ensure class changes are applied
+    document.querySelectorAll('.link').forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            const targetId = this.getAttribute('data-target');
+            document.getElementById(targetId).classList.remove('hidden');
+        });
     });
-});
 
-document.querySelector('.login-btn').addEventListener('click', function(event) {
-    event.preventDefault();
-    const currentSection = document.querySelector('section.show');
-    if (currentSection) {
-        currentSection.classList.remove('show');
-        setTimeout(() => {
-            currentSection.classList.add('hidden');
-        }, 500); // Match this duration with the CSS transition
-    }
-    const loginSection = document.getElementById('login');
-    loginSection.classList.remove('hidden');
-    setTimeout(() => {
-        loginSection.classList.add('show');
-    }, 10); // Small delay to ensure class changes are applied
-});
+    document.querySelector('.login-btn').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('hidden');
+        });
+        document.getElementById('login').classList.remove('hidden');
+    });
+
+    document.getElementById('login-btn').addEventListener('click', function() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        // Find den bruger, der matcher det indtastede brugernavn og adgangskode
+        const user = users.find(user => user.username === username && user.password === password);
+
+        if (user) {
+            alert("Login successful!");
+            currentUsername = user.username; // Opdater den nuværende bruger
+            document.querySelector('.login-btn').style.display = 'none'; // Skjul login-knappen
+            const userInfo = document.getElementById('user-info');
+            userInfo.textContent = `Velkommen, ${currentUsername}`; // Vis brugernavnet
+            userInfo.style.display = 'inline-block'; // Vis brugernavnet
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            document.getElementById('omos').classList.remove('hidden'); // Vis startsiden eller en anden sektion
+        } else {
+            alert("Forkert brugernavn eller adgangskode!");
+        }
+    });
+
+    document.getElementById('admin-btn').addEventListener('click', function(event) {
+        event.preventDefault();
+        let code = prompt("Indtast admin-koden:");
+        if (code === "4565") {
+            window.location.href = "https://github.com/emb1ix/gopnik/blob/main/index.html";
+        } else {
+            alert("Du er ikke Admin, så hold dig væk herfra!");
+        }
+    });
 </script>
 
 </body>
