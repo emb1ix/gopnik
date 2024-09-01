@@ -19,7 +19,7 @@
             background-color: #D32F2F; /* Rød baggrundsfarve */
             color: #FFFFFF; /* Hvid tekstfarve */
             padding: 20px;
-            position: relative; /* For at placere login-knappen */
+            position: relative; /* For at placere knapperne og oversætnings-widgeten */
         }
         header h1 {
             margin: 0;
@@ -39,10 +39,9 @@
             border-radius: 50%;
             border: 3px solid #FFFFFF;
         }
-        .login-btn {
+        .login-btn, .translate-btn {
             position: absolute;
             top: 20px;
-            right: 20px;
             background-color: #FFFFFF;
             color: #D32F2F;
             padding: 10px 20px;
@@ -52,8 +51,20 @@
             cursor: pointer;
             text-decoration: none;
         }
-        .login-btn:hover {
+        .login-btn {
+            right: 20px;
+        }
+        .translate-btn {
+            left: 20px;
+        }
+        .login-btn:hover, .translate-btn:hover {
             background-color: #f5f5f5;
+        }
+        /* Tilføjet styling til oversætnings-widgeten */
+        #google_translate_element {
+            position: absolute;
+            left: 20px;
+            top: 70px; /* Juster højden afhængigt af din layout */
         }
         nav {
             background-color: #212121; /* Sort baggrundsfarve */
@@ -182,6 +193,16 @@
             display: none; /* Skjult som standard */
         }
     </style>
+    <!-- Google Translate widget -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'da',
+                includedLanguages: 'en,es,fr,de,pt,zh-CN,ja,ko'
+            }, 'google_translate_element');
+        }
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
 
@@ -191,6 +212,8 @@
         <h1>SlavHub</h1>
     </div>
     <a href="#login" class="login-btn">Login</a>
+    <button class="translate-btn" onclick="document.getElementById('google_translate_element').style.display = 'block';">Translate</button>
+    <div id="google_translate_element" style="display: none;"></div> <!-- Plads til Google Translate widget -->
     <p id="user-info"></p> <!-- Plads til brugernavn -->
     <p>Velkommen til SlavHub - dit hub for Gopniks og russisk kultur!</p>
 </header>
@@ -260,7 +283,6 @@
         <button id="admin-btn" class="admin-btn">Admin Login</button>
     </div>
 </section>
-
 
 <script>
     // Liste over brugere med brugernavn og adgangskode
