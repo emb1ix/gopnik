@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="da">
 <head>
@@ -22,7 +19,7 @@
             background-color: #D32F2F; /* Rød baggrundsfarve */
             color: #FFFFFF; /* Hvid tekstfarve */
             padding: 20px;
-            position: relative; /* For at placere knapperne og oversætnings-widgeten */
+            position: relative;
         }
         header h1 {
             margin: 0;
@@ -42,6 +39,7 @@
             border-radius: 50%;
             border: 3px solid #FFFFFF;
         }
+        nav {
             background-color: #212121; /* Sort baggrundsfarve */
             padding: 15px 0;
             text-align: center;
@@ -98,7 +96,7 @@
             max-width: 100%;
             height: auto;
             margin-bottom: 10px;
-       }
+        }
         #user-info {
             position: absolute;
             top: 20px;
@@ -109,146 +107,100 @@
             border-radius: 3px;
             font-weight: bold;
             display: none; /* Skjult som standard */
-
-<header>
-    <div class="header-container">
-        <img src="https://i.postimg.cc/3J2PRrf4/dbf851fb-5544-4f95-8d1f-267bd83f9f93.jpg" alt="Gopnik Logo" class="logo">
-        <h1>SlavHub</h1>
-    </div>
-    <a href="#login" class="login-btn">Login</a>
-    <button class="translate-btn" onclick="document.getElementById('google_translate_element').style.display = 'block';">Translate</button>
-    <div id="google_translate_element" style="display: none;"></div> <!-- Plads til Google Translate widget -->
-    <p id="user-info"></p> <!-- Plads til brugernavn -->
-    <p>Velkommen til SlavHub - dit hub for Gopniks og russisk kultur!</p>
-</header>
-
-<nav>
-    <a href="#" class="link" data-target="omos">Om Os</a>
-    <a href="#" class="link" data-target="billeder">Billeder</a>
-    <a href="#" class="link" data-target="videoer">Videoer</a>
-    <a href="#" class="link" data-target="kontakt">Kontakt Os</a>
-    <a href="#" class="link" data-target="historie">Om Gopniks</a>
-</nav>
-
-<section id="omos">
-    <h2>Om Os</h2>
-    <p>Vi er dedikeret til at levere de seneste nyheder, billeder og videoer fra den russiske gopnik kultur. Vores passion for russisk kultur driver os til at levere det bedste indhold til vores brugere. Venligt hilsen de to danske gopniks</p>
-</section>
-
-<section id="billeder" class="hidden">
-    <h2>Billeder</h2>
-    <div class="image-gallery">
-        <div>
-            <img src="https://i.postimg.cc/Wb7pRtxj/Gopnik.jpg" alt="Gopnik 1">
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <img src="https://i.postimg.cc/3J2PRrf4/dbf851fb-5544-4f95-8d1f-267bd83f9f93.jpg" alt="Gopnik Logo" class="logo">
+            <h1>SlavHub</h1>
         </div>
-        <div>
-            <img src="https://i.postimg.cc/50JkM9hd/Gopnik-2.jpg" alt="Gopnik 2">
-        </div>
-        <div>
-            <img src="https://i.postimg.cc/x8xsHvcn/Gopnik-3.jpg" alt="Gopnik 3">
-        </div>
-        <div>
-            <img src="https://i.postimg.cc/R0VbkSkk/tmp-673f5ef6-2187-4734-8e3b-66d940cfaa5b.jpg" alt="Gopnik 4">
-        </div>
-        <div>
-            <img src="https://i.postimg.cc/4N5kqQW3/tmp-464db4ec-0a5c-4ab9-a614-28bd21c3ddb6.jpg" alt="Gopnik 5">
-        </div>
-        <div>
-            <img src="https://i.postimg.cc/C1qp2y2y/tmp-00354dad-2c62-48cc-84a0-bf28bff995b0.jpg" alt="Gopnik 7">
-        </div>
-        <div>
-            <img src="https://i.postimg.cc/FKqQGFDg/tmp-a09aca7c-6ad8-4bd0-b296-5df3d4d13713.jpg" alt="Gopnik 8">
-        </div>
-        <div>
-            <img src="https://i.postimg.cc/VsXcB8Mn/tmp-caa320e0-d7f9-491c-88c5-38f3bc8fb90d.jpg" alt="Gopnik 9">
-        </div>
-        <div>
-            <img src="https://i.postimg.cc/qRpzxyX8/tmp-f4a4f929-4016-446d-894e-8dc4f33d606e.jpg" alt="Gopnik 10">
-        </div>
-    </div>
-</section>
+        <p>Velkommen til SlavHub - dit hub for Gopniks og russisk kultur!</p>
+    </header>
 
-<section id="videoer" class="hidden">
-    <h2>Videoer</h2>
-    <p>Velkommen til video-sektionen. Se de nyeste videoer af Gopniks her!</p>
+    <nav>
+        <a href="#" class="link" data-target="omos">Om Os</a>
+        <a href="#" class="link" data-target="billeder">Billeder</a>
+        <a href="#" class="link" data-target="videoer">Videoer</a>
+        <a href="#" class="link" data-target="kontakt">Kontakt Os</a>
+        <a href="#" class="link" data-target="historie">Om Gopniks</a>
+    </nav>
 
-    <!-- YouTube video -->
-    <iframe width="280" height="157" src="https://www.youtube.com/embed/afP71xwLI8Y" 
-            title="YouTube video player" frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-    </iframe>
-</section>
+    <section id="omos">
+        <h2>Om Os</h2>
+        <p>Vi er dedikeret til at levere de seneste nyheder, billeder og videoer fra den russiske gopnik kultur. Vores passion for russisk kultur driver os til at levere det bedste indhold til vores brugere. Venligt hilsen de to danske gopniks</p>
+    </section>
 
+    <section id="billeder" class="hidden">
+        <h2>Billeder</h2>
+        <div class="image-gallery">
+            <div>
+                <img src="https://i.postimg.cc/Wb7pRtxj/Gopnik.jpg" alt="Gopnik 1">
+            </div>
+            <div>
+                <img src="https://i.postimg.cc/50JkM9hd/Gopnik-2.jpg" alt="Gopnik 2">
+            </div>
+            <div>
+                <img src="https://i.postimg.cc/x8xsHvcn/Gopnik-3.jpg" alt="Gopnik 3">
+            </div>
+            <div>
+                <img src="https://i.postimg.cc/R0VbkSkk/tmp-673f5ef6-2187-4734-8e3b-66d940cfaa5b.jpg" alt="Gopnik 4">
+            </div>
+            <div>
+                <img src="https://i.postimg.cc/4N5kqQW3/tmp-464db4ec-0a5c-4ab9-a614-28bd21c3ddb6.jpg" alt="Gopnik 5">
+            </div>
+            <div>
+                <img src="https://i.postimg.cc/C1qp2y2y/tmp-00354dad-2c62-48cc-84a0-bf28bff995b0.jpg" alt="Gopnik 7">
+            </div>
+            <div>
+                <img src="https://i.postimg.cc/FKqQGFDg/tmp-a09aca7c-6ad8-4bd0-b296-5df3d4d13713.jpg" alt="Gopnik 8">
+            </div>
+            <div>
+                <img src="https://i.postimg.cc/VsXcB8Mn/tmp-caa320e0-d7f9-491c-88c5-38f3bc8fb90d.jpg" alt="Gopnik 9">
+            </div>
+            <div>
+                <img src="https://i.postimg.cc/qRpzxyX8/tmp-f4a4f929-4016-446d-894e-8dc4f33d606e.jpg" alt="Gopnik 10">
+            </div>
+        </div>
+    </section>
 
-<section id="kontakt" class="hidden">
-    <h2>Kontakt Os</h2>
-    <p>Har du spørgsmål eller vil du oprette en profil? Send os en besked på slavhub48@gmail.com</p>
-</section>
+    <section id="videoer" class="hidden">
+        <h2>Videoer</h2>
+        <p>Velkommen til video-sektionen. Se de nyeste videoer af Gopniks her!</p>
+        <iframe width="280" height="157" src="https://www.youtube.com/embed/afP71xwLI8Y" 
+                title="YouTube video player" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+    </section>
 
-<section id="historie" class="hidden">
-    <h2>Om Gopniks</h2>
-    <p>Den Russiske Gopnik kultur started i 1980’erne som betegnelse for unge Arbejderklasse mænd,
-        som hang ud på gaden og drak alkohol og røg smøger. Det fortsatte op gennem 1990’erne og 00’erne.
-        Gopniks findes stadig, især i de Slaviske lande som Polen, Ukraine og Rusland.
-        Den typiske beklædning for Gopniks er enten normalt Arbejdertøj og lædertøj, eller den klassiske Adidas Tracksuit.
-        De bor typisk i Soviet-boligblokke, men bruger det meste af tiden på gaden, hvor de spiser Семечки (ristede og saltede solsikkefrø)
-        og drikker Квас (en fermenterede rugbrødsdrik).</p>
-</section>
+    <section id="kontakt" class="hidden">
+        <h2>Kontakt Os</h2>
+        <p>Har du spørgsmål eller vil du oprette en profil? Send os en besked på slavhub48@gmail.com</p>
+    </section>
 
-<script>
-    // Liste over brugere med brugernavn og adgangskode
-    const users = [
-        { username: "Alfred", password: "Kurwa" },
-        { username: "Oliver", password: "4565" },
-        { username: "Tester", password: "ur2stupid" },
-        { username: "Oli", password: "Oli" },
-        // Tilføj flere brugere her
-    ];
+    <section id="historie" class="hidden">
+        <h2>Om Gopniks</h2>
+        <p>Den Russiske Gopnik kultur started i 1980’erne som betegnelse for unge Arbejderklasse mænd,
+            som hang ud på gaden og drak alkohol og røg smøger. Det fortsatte op gennem 1990’erne og 00’erne.
+            Gopniks findes stadig, især i de Slaviske lande som Polen, Ukraine og Rusland.
+            Den typiske beklædning for Gopniks er enten normalt Arbejdertøj og lædertøj, eller den klassiske Adidas Tracksuit.
+            De bor typisk i Soviet-boligblokke, men bruger det meste af tiden på gaden, hvor de spiser Семечки (ristede og saltede solsikkefrø)
+            og drikker Квас (en fermenterede rugbrødsdrik).</p>
+    </section>
 
-    let currentUsername = ''; // Variable til at holde det aktuelle brugernavn
-
-    document.querySelectorAll('.link').forEach(link => {
-        link.addEventListener('click', function(event) {
-            event.preventDefault();
-            document.querySelectorAll('section').forEach(section => {
-                section.classList.add('hidden');
+    <script>
+        document.querySelectorAll('.link').forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                document.querySelectorAll('section').forEach(section => {
+                    section.classList.add('hidden');
+                });
+                const targetId = this.getAttribute('data-target');
+                document.getElementById(targetId).classList.remove('hidden');
             });
-            const targetId = this.getAttribute('data-target');
-            document.getElementById(targetId).classList.remove('hidden');
         });
-    });
-
-
-        // Find den bruger, der matcher det indtastede brugernavn og adgangskode
-        const user = users.find(user => user.username === username && user.password === password);
-
-        if (user) {
-            alert("Login successful!");
-            currentUsername = user.username; // Opdater den nuværende bruger
-            document.querySelector('.login-btn').style.display = 'none'; // Skjul login-knappen
-            const userInfo = document.getElementById('user-info');
-            userInfo.textContent = `Velkommen, ${currentUsername}`; // Vis brugernavnet
-            userInfo.style.display = 'inline-block'; // Vis brugernavnet
-            document.querySelectorAll('section').forEach(section => {
-                section.classList.add('hidden');
-            });
-            document.getElementById('omos').classList.remove('hidden'); // Vis startsiden eller en anden sektion
-        } else {
-            alert("Forkert brugernavn eller adgangskode!");
-        }
-    });
-
-    document.getElementById('admin-btn').addEventListener('click', function(event) {
-        event.preventDefault();
-        let code = prompt("Indtast admin-koden:");
-        if (code === "4565") {
-            window.location.href = "https://github.com/emb1ix/gopnik/blob/main/index.html";
-        } else {
-            alert("Du er ikke Admin, så hold dig væk herfra!");
-        }
-    });
-</script>
-
+    </script>
 </body>
 </html>
