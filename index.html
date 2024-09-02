@@ -12,81 +12,89 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #f4f4f4;
+            background-color: #f0f0f0;
         }
-        .login-container {
+        .container {
             background-color: #fff;
             padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        .login-container h1 {
-            margin-bottom: 20px;
+        .container h1 {
+            margin: 0 0 20px;
         }
-        .login-container input {
+        .container label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        .container input {
             width: 80%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 3px;
+            padding: 8px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
-        .login-container button {
+        .container button {
             width: 100%;
             padding: 10px;
             background-color: #28a745;
+            color: white;
             border: none;
-            border-radius: 3px;
-            color: #fff;
-            font-size: 16px;
+            border-radius: 4px;
             cursor: pointer;
         }
-        .login-container button:hover {
+        .container button:hover {
             background-color: #218838;
         }
-        .login-container .error-message {
+        .error {
             color: red;
             margin-top: 10px;
         }
     </style>
 </head>
 <body>
-    <div class="login-container">
+    <div class="container">
         <h1>Login</h1>
         <form id="loginForm">
-            <input type="text" id="username" placeholder="Brugernavn" required>
-            <input type="password" id="password" placeholder="Adgangskode" required>
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="username">Brugernavn:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Adgangskode:</label>
+            <input type="password" id="password" name="password" required>
             <button type="submit">Log ind</button>
-            <div class="error-message" id="error-message"></div>
+            <div id="error" class="error"></div>
         </form>
     </div>
 
     <script>
+        // Liste over brugere med e-mail, brugernavn og adgangskode
+        const users = [
+            { email: 'Admin', username: 'Alfred', password: 'Kurwa' },
+            { email: 'Admin', username: 'Oliver', password: '4565' },
+            { email: 'Demo', username: 'Demo', password: 'Demo' }
+            // Tilføj flere brugere her
+        ];
+
         document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Forhindre standard formular indsendelse
+            event.preventDefault();
 
-            var username = document.getElementById("username").value;
-            var password = document.getElementById("password").value;
-            var errorMessage = document.getElementById("error-message");
+            const email = document.getElementById('email').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorDiv = document.getElementById('error');
 
-            // Simuleret brugervalidering (i praksis skal du validere dette på serveren)
-            if (username === "Oliver" && password === "4565") {
-                // Indstil en session-variabel for at indikere, at brugeren er logget ind
-                sessionStorage.setItem('loggedIn', true);
+            // Tjek om e-mail, brugernavn og adgangskode matcher nogen i listen
+            const user = users.find(user => user.email === email && user.username === username && user.password === password);
 
-                // Redirect til home.html efter vellykket login
-                window.location.href = "home.html";
+            if (user) {
+                // Redirect til home.html, hvis login er korrekt
+                window.location.href = 'home.html';
             } else {
-                // Vis en fejlbesked
-                errorMessage.textContent = "Forkert brugernavn eller adgangskode!";
+                // Vis fejlmeddelelse, hvis login ikke er korrekt
+                errorDiv.textContent = 'Forkert e-mail, brugernavn eller adgangskode.';
             }
         });
-
-        // Check om brugeren er logget ind når de forsøger at få adgang til login-siden
-        if (sessionStorage.getItem('loggedIn')) {
-            window.location.href = 'home.html'; // Hvis brugeren allerede er logget ind, omdiriger dem til home.html
-        }
     </script>
 </body>
 </html>
