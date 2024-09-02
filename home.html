@@ -42,22 +42,6 @@
             border-radius: 50%;
             border: 3px solid #FFFFFF;
         }
-        .login-btn {
-            right: 20px;
-        }
-        .translate-btn {
-            left: 20px;
-        }
-        .login-btn:hover, .translate-btn:hover {
-            background-color: #f5f5f5;
-        }
-        /* Tilføjet styling til oversætnings-widgeten */
-        #google_translate_element {
-            position: absolute;
-            left: 20px;
-            top: 70px; /* Juster højden afhængigt af din layout */
-        }
-        nav {
             background-color: #212121; /* Sort baggrundsfarve */
             padding: 15px 0;
             text-align: center;
@@ -114,58 +98,7 @@
             max-width: 100%;
             height: auto;
             margin-bottom: 10px;
-        }
-        /* Tilføjet styling for login-siden */
-        .login-container {
-            margin-top: 50px;
-        }
-        }
-        .login-form h2 {
-            margin-top: 0;
-        }
-        .login-form label {
-            display: block;
-            margin-bottom: 10px;
-        }
-        .login-form input {
-            width: 93%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: none;
-            border-radius: 5px;
-        }
-        .login-form button {
-            width: 100%;
-            padding: 10px;
-            background-color: #D32F2F;
-            color: #FFFFFF;
-            border: none;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .login-form button:hover {
-            background-color: #E53935;
-        }
-        /* Tilføjelse af styling for admin-knappen */
-        #admin-btn {
-    background-color: transparent; /* Skifter baggrundsfarven til gennemsigtig */
-    border: 2; /* Fjern kant hvis der er en */
-    color: inherit; /* Matcher knapteksten med baggrundens farve */
-         
-            padding: 8px 13px;
-            border: none;
-            border-radius: 7px;
-            font-weight: bold;
-            text-align: center;
-            text-decoration: none;
-            display: block;
-            cursor: pointer;
-        }
-        .admin-btn:hover {
-            background-color: #333333;
-        }
-        /* Styling til at vise brugernavn efter login */
+       }
         #user-info {
             position: absolute;
             top: 20px;
@@ -176,20 +109,6 @@
             border-radius: 3px;
             font-weight: bold;
             display: none; /* Skjult som standard */
-        }
-    </style>
-    <!-- Google Translate widget -->
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'da',
-                includedLanguages: 'en,ru,pl'
-            }, 'google_translate_element');
-        }
-    </script>
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-</head>
-<body>
 
 <header>
     <div class="header-container">
@@ -300,17 +219,6 @@
         });
     });
 
-    document.querySelector('.login-btn').addEventListener('click', function(event) {
-        event.preventDefault();
-        document.querySelectorAll('section').forEach(section => {
-            section.classList.add('hidden');
-        });
-        document.getElementById('login').classList.remove('hidden');
-    });
-
-    document.getElementById('login-btn').addEventListener('click', function() {
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
 
         // Find den bruger, der matcher det indtastede brugernavn og adgangskode
         const user = users.find(user => user.username === username && user.password === password);
