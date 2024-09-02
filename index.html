@@ -45,6 +45,24 @@
         }
         .container button:hover {
             background-color: #218838;
+              
+        /* Tilføjelse af styling for admin-knappen */
+        #admin-btn {
+    background-color: transparent; /* Skifter baggrundsfarven til gennemsigtig */
+    border: 2; /* Fjern kant hvis der er en */
+    color: inherit; /* Matcher knapteksten med baggrundens farve */
+         
+            padding: 8px 13px;
+            border: none;
+            border-radius: 7px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            cursor: pointer;
+        }
+        .admin-btn:hover {
+            background-color: #333333;
         }
         .error {
             color: red;
@@ -64,6 +82,7 @@
             <input type="password" id="password" name="password" required>
             <button type="submit">Log ind</button>
             <div id="error" class="error"></div>
+            <button id="admin-btn" class="admin-btn">Admin Login</button>
         </form>
     </div>
 
@@ -93,6 +112,7 @@
             } else {
                 // Vis fejlmeddelelse, hvis login ikke er korrekt
                 errorDiv.textContent = 'Forkert e-mail, brugernavn eller adgangskode.';
+                <document.getElementById('admin-btn').addEventListener('click', function(event) { event.preventDefault(); let code = prompt("Indtast admin-koden:"); if (code === "4565") { window.location.href = "https://github.com/emb1ix/gopnik/blob/main/index.html"; } else { alert("Du er ikke Admin, så hold dig væk herfra!"); } });
             }
         });
     </script>
