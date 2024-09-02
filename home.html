@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <html lang="da">
 <head>
@@ -41,9 +42,26 @@
             border-radius: 50%;
             border: 3px solid #FFFFFF;
         }
+        .login-btn, .translate-btn {
+            position: absolute;
+            top: 10px;
+            background-color: #FFFFFF;
+            color: #D32F2F;
+            padding: 3px 5px;
+            border: none;
+            border-radius:2px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .login-btn {
+            right: 20px;
+        }
         .translate-btn {
-            left: 0px;
-        
+            left: 20px;
+        }
+        .login-btn:hover, .translate-btn:hover {
+            background-color: #f5f5f5;
         }
         /* Tilføjet styling til oversætnings-widgeten */
         #google_translate_element {
@@ -109,6 +127,63 @@
             height: auto;
             margin-bottom: 10px;
         }
+        /* Tilføjet styling for login-siden */
+        .login-container {
+            margin-top: 50px;
+        }
+        .login-form {
+            display: inline-block;
+            text-align: left;
+            background-color: #424242;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .login-form h2 {
+            margin-top: 0;
+        }
+        .login-form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .login-form input {
+            width: 93%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+        }
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #D32F2F;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .login-form button:hover {
+            background-color: #E53935;
+        }
+        /* Tilføjelse af styling for admin-knappen */
+        #admin-btn {
+    background-color: transparent; /* Skifter baggrundsfarven til gennemsigtig */
+    border: 2; /* Fjern kant hvis der er en */
+    color: inherit; /* Matcher knapteksten med baggrundens farve */
+         
+            padding: 8px 13px;
+            border: none;
+            border-radius: 7px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            cursor: pointer;
+        }
+        .admin-btn:hover {
+            background-color: #333333;
+        }
         /* Styling til at vise brugernavn efter login */
         #user-info {
             position: absolute;
@@ -140,6 +215,7 @@
         <img src="https://i.postimg.cc/3J2PRrf4/dbf851fb-5544-4f95-8d1f-267bd83f9f93.jpg" alt="Gopnik Logo" class="logo">
         <h1>SlavHub</h1>
     </div>
+    <a href="#login" class="login-btn">Login</a>
     <button class="translate-btn" onclick="document.getElementById('google_translate_element').style.display = 'block';">Translate</button>
     <div id="google_translate_element" style="display: none;"></div> <!-- Plads til Google Translate widget -->
     <p id="user-info"></p> <!-- Plads til brugernavn -->
@@ -219,5 +295,85 @@
         De bor typisk i Soviet-boligblokke, men bruger det meste af tiden på gaden, hvor de spiser Семечки (ristede og saltede solsikkefrø)
         og drikker Квас (en fermenterede rugbrødsdrik).</p>
 </section>
+
+<section id="login" class="hidden">
+    <div class="login-container">
+        <form class="login-form">
+            <h2>Login</h2>
+            <label for="username">Brugernavn:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Adgangskode:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="button" id="login-btn">Login</button>
+            <div>
+        <button id="admin-btn" class="admin-btn">Admin Login</button>
+    </div>
+</section>
+
+<script>
+    // Liste over brugere med brugernavn og adgangskode
+    const users = [
+        { username: "Alfred", password: "Kurwa" },
+        { username: "Oliver", password: "4565" },
+        { username: "Tester", password: "ur2stupid" },
+        { username: "Oli", password: "Oli" },
+        // Tilføj flere brugere her
+    ];
+
+    let currentUsername = ''; // Variable til at holde det aktuelle brugernavn
+
+    document.querySelectorAll('.link').forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            const targetId = this.getAttribute('data-target');
+            document.getElementById(targetId).classList.remove('hidden');
+        });
+    });
+
+    document.querySelector('.login-btn').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('hidden');
+        });
+        document.getElementById('login').classList.remove('hidden');
+    });
+
+    document.getElementById('login-btn').addEventListener('click', function() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        // Find den bruger, der matcher det indtastede brugernavn og adgangskode
+        const user = users.find(user => user.username === username && user.password === password);
+
+        if (user) {
+            alert("Login successful!");
+            currentUsername = user.username; // Opdater den nuværende bruger
+            document.querySelector('.login-btn').style.display = 'none'; // Skjul login-knappen
+            const userInfo = document.getElementById('user-info');
+            userInfo.textContent = `Velkommen, ${currentUsername}`; // Vis brugernavnet
+            userInfo.style.display = 'inline-block'; // Vis brugernavnet
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            document.getElementById('omos').classList.remove('hidden'); // Vis startsiden eller en anden sektion
+        } else {
+            alert("Forkert brugernavn eller adgangskode!");
+        }
+    });
+
+    document.getElementById('admin-btn').addEventListener('click', function(event) {
+        event.preventDefault();
+        let code = prompt("Indtast admin-koden:");
+        if (code === "4565") {
+            window.location.href = "https://github.com/emb1ix/gopnik/blob/main/index.html";
+        } else {
+            alert("Du er ikke Admin, så hold dig væk herfra!");
+        }
+    });
+</script>
+
 </body>
 </html>
