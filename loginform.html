@@ -3,127 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SlavHub Login</title>
-    <link rel="shortcut icon" type="image/png" href="https://raw.githubusercontent.com/emb1ix/gopnik/main/youtube-music-icon-2048x2048-11gyian5.ico"/>
+    <title>Login</title>
     <style>
         body {
-            font-family: 'Courier New', Courier, monospace;
-            margin: 0;
-            padding: 0;
-            background-color: #2B2B2B;
-            color: #E0E0E0;
-            line-height: 1.6;
-            text-align: center;
-            overflow: hidden; /* Forhindrer rulning */
-        }
-
-        /* Login-formular der fylder hele skærmen */
-        .login-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background-color: rgba(0, 0, 0, 0.85);
+            font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
         }
-
-        .login-form {
-            background-color: #424242;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            text-align: left;
-            width: 100%;
-            max-width: 400px;
-        }
-
-        .login-form h2 {
-            margin-top: 0;
+        .login-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
             text-align: center;
-            color: #FFFFFF;
         }
-
-        .login-form label {
-            display: block;
-            margin-bottom: 10px;
-            color: #FFFFFF;
+        .login-container h1 {
+            margin-bottom: 20px;
         }
-
-        .login-form input {
+        .login-container input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        .login-container button {
             width: 100%;
             padding: 10px;
-            margin-bottom: 15px;
+            background-color: #28a745;
             border: none;
-            border-radius: 5px;
-        }
-
-        .login-form button {
-            width: 100%;
-            padding: 10px;
-            background-color: #D32F2F;
-            color: #FFFFFF;
-            border: none;
-            border-radius: 5px;
-            font-weight: bold;
+            border-radius: 3px;
+            color: #fff;
+            font-size: 16px;
             cursor: pointer;
         }
-
-        .login-form button:hover {
-            background-color: #E53935;
+        .login-container button:hover {
+            background-color: #218838;
         }
-
-        /* Styling til at vise brugernavn efter login */
-        #user-info {
-            position: absolute;
-            top: 20px;
-            right: 10px;
-            background-color: #FFFFFF;
-            color: #D32F2F;
-            padding: 5px 10px;
-            border-radius: 3px;
-            font-weight: bold;
-            display: none;
+        .login-container .error-message {
+            color: red;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
-
-<!-- Kun login-sektionen vises -->
-<section id="login" class="login-container">
-    <div class="login-form">
-        <h2>Login</h2>
-        <label for="username">Brugernavn:</label>
-        <input type="text" id="username" placeholder="Indtast brugernavn">
-        <label for="password">Adgangskode:</label>
-        <input type="password" id="password" placeholder="Indtast adgangskode">
-        <button onclick="login()">Login</button>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Brugernavn" required>
+            <input type="password" id="password" placeholder="Adgangskode" required>
+            <button type="submit">Log ind</button>
+            <div class="error-message" id="error-message"></div>
+        </form>
     </div>
-</section>
 
-<script>
-    function login() {
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Forhindre standard formular indsendelse
 
-        // Placeholder for valid users - in real cases, this would be a server check
-        const validUsers = [
-            { username: "emb", password: "gopnik" },
-            { username: "admin", password: "admin123" }
-        ];
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var errorMessage = document.getElementById("error-message");
 
-        const user = validUsers.find(user => user.username === username && user.password === password);
+            // Simuleret brugervalidering (i praksis skal du validere dette på serveren)
+            if (username === "Oliver" && password === "4565") {
+                // Indstil en session-variabel for at indikere, at brugeren er logget ind
+                sessionStorage.setItem('loggedIn', true);
 
-        if (user) {
-            alert("Login successful!");
-            window.location.href = "index.html"; // Redirect til index.html efter vellykket login
-        } else {
-            alert("Forkert brugernavn eller adgangskode!");
+                // Redirect til home.html efter vellykket login
+                window.location.href = "home.html";
+            } else {
+                // Vis en fejlbesked
+                errorMessage.textContent = "Forkert brugernavn eller adgangskode!";
+            }
+        });
+
+        // Check om brugeren er logget ind når de forsøger at få adgang til login-siden
+        if (sessionStorage.getItem('loggedIn')) {
+            window.location.href = 'home.html'; // Hvis brugeren allerede er logget ind, omdiriger dem til home.html
         }
-    }
-</script>
-
+    </script>
 </body>
 </html>
